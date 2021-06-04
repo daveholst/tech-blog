@@ -1,7 +1,8 @@
 const router = require('express').Router();
 
+// root route
 router.get('/', async (req, res) => {
-  res.json('Server up!')
+  res.render('test');
 })
 
 module.exports = router;
