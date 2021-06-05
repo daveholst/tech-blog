@@ -1,0 +1,6 @@
+- [ ] Basic UI
+- [ ] Login / Signup Modals
+- [ ] Users DB
+- [ ] API (logging in) bCrypt hashing
+- [ ] Logging in via Modals
+- [ ] Start Posting?
