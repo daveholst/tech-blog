@@ -1,3 +1,4 @@
+
 // NAV buttons
 const loginButton = document.querySelector('#nav-login');
 const signupButton = document.querySelector('#nav-signup');
@@ -58,21 +59,27 @@ signupCloseBtn.addEventListener('click', () => {
 // login handler
 loginForm.addEventListener('submit', async (event) => {
   event.preventDefault();
-  console.log(event.target);
+
   const data = new FormData(event.target);
   const loginData = Object.fromEntries(data.entries());
+  const newProgress = document.createElement('progress');
+  const newErrorMessage = document.createElement('h3')
   try {
     // add progress bar
-    newProgress = document.createElement('progress');
-    newProgress.classList.add('progress', 'is-small', 'is-primary', 'mt-4');
+    newProgress.classList.add('progress', 'is-medium', 'is-primary', 'mt-4');
     newProgress.textContent = '15%'
-    signupForm.appendChild(newProgress);
+    loginForm.appendChild(newProgress);
     const response = await axios.post('/api/users/login', loginData)
-    console.log(response);
+    loginForm.removeChild(newProgress);
     // reload page
     window.location.replace("/");
 
   } catch (error) {
+    loginForm.removeChild(newProgress);
+    newErrorMessage.classList.add('has-text-danger', 'is-size-4', 'has-text-centered', 'has-text-weight-bold'	);
+    newErrorMessage.textContent = 'Incorrect Username or Password'
+    loginForm.appendChild(newErrorMessage);
+
     console.error(error);
   }
 

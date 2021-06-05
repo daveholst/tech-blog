@@ -40,7 +40,6 @@ router.post('/login', async (req, res) => {
        username: req.body.username,
       },
     });
-
     if (!dbUserData) {
       res.status(400).json({ message: 'Incorrect username or password. Please try again!' });
       return;
