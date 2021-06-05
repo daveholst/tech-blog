@@ -72,22 +72,28 @@
     <div id="login-modal" class="modal">
       <div id="login-bg" class="modal-background"></div>
       <div class="modal-content">
-        <form class="box">
+        <form id="login-form" class="box">
           <div class="field">
-            <label class="label">Email</label>
+            <label class="label">Username</label>
             <div class="control">
-              <input class="input" autocomplete="email" type="email" placeholder="e.g. alex@example.com" />
+              <input class="input" name="username" autocomplete="username" type="text" placeholder="e.g. coolUs3r" />
             </div>
           </div>
 
           <div class="field">
             <label class="label">Password</label>
             <div class="control">
-              <input class="input" autocomplete="current-password" type="password" placeholder="********" />
+              <input
+                class="input"
+                name="password"
+                autocomplete="current-password"
+                type="password"
+                placeholder="********"
+              />
             </div>
           </div>
 
-          <button class="button is-primary">Login</button>
+          <button type="submit" class="button is-primary">Login</button>
         </form>
       </div>
       <button id="login-close-btn" class="modal-close is-large" aria-label="close"></button>

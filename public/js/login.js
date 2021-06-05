@@ -12,6 +12,9 @@ const signupBackground = document.querySelector('#signup-bg')
 // Hamburger
 const navMenu = document.querySelector('#nav-menu');
 const navBurger = document.querySelector('#burger');
+// Login Form
+const loginForm = document.querySelector('#login-form')
+
 // * Modal handlers
 // open when login from nav is clicked
 loginButton.addEventListener('click', async () => {
@@ -21,7 +24,6 @@ loginButton.addEventListener('click', async () => {
     try {
       const response = await axios.post('/api/users/logout')
       window.location.replace("/");
-
     } catch (error) {
       console.error(error);
     }
@@ -52,6 +54,30 @@ signupBackground.addEventListener('click', () => {
 signupCloseBtn.addEventListener('click', () => {
   signupModal.classList.toggle('is-active');
 })
+
+// login handler
+loginForm.addEventListener('submit', async (event) => {
+  event.preventDefault();
+  console.log(event.target);
+  const data = new FormData(event.target);
+  const loginData = Object.fromEntries(data.entries());
+  try {
+    // add progress bar
+    newProgress = document.createElement('progress');
+    newProgress.classList.add('progress', 'is-small', 'is-primary', 'mt-4');
+    newProgress.textContent = '15%'
+    signupForm.appendChild(newProgress);
+    const response = await axios.post('/api/users/login', loginData)
+    console.log(response);
+    // reload page
+    window.location.replace("/");
+
+  } catch (error) {
+    console.error(error);
+  }
+
+})
+
 
 // !open hamburger -- copypasta from bulma.io docs
 document.addEventListener('DOMContentLoaded', () => {
