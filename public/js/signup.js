@@ -6,6 +6,9 @@ signupForm.addEventListener('submit', (event) => {
   console.log(event.target);
   const data = new FormData(event.target);
   const signupData = Object.fromEntries(data.entries());
+
+
+
   console.log(signupData);
 
 })
