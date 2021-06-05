@@ -48,7 +48,7 @@
         <div class="navbar-end">
           <div class="navbar-item">
             <div class="buttons">
-              <a class="button is-primary">
+              <a id="nav-signup" class="button is-primary">
                 <strong>Sign up</strong>
               </a>
               <a id="nav-login" class="button is-light">
@@ -61,29 +61,94 @@
     </nav>
     {{! Login Modal }}
     <div id="login-modal" class="modal">
-      <div class="modal-background"></div>
+      <div id="login-bg" class="modal-background"></div>
       <div class="modal-content">
         <form class="box">
           <div class="field">
             <label class="label">Email</label>
             <div class="control">
-              <input class="input" type="email" placeholder="e.g. alex@example.com" />
+              <input class="input" autocomplete="email" type="email" placeholder="e.g. alex@example.com" />
             </div>
           </div>
 
           <div class="field">
             <label class="label">Password</label>
             <div class="control">
-              <input class="input" type="password" placeholder="********" />
+              <input class="input" autocomplete="current-password" type="password" placeholder="********" />
             </div>
           </div>
 
-          <button class="button is-primary">Sign in</button>
+          <button class="button is-primary">Login</button>
         </form>
       </div>
-      <button id="login-close" class="modal-close is-large" aria-label="close"></button>
+      <button id="login-close-btn" class="modal-close is-large" aria-label="close"></button>
+    </div>
+    {{! SignUp Modal }}
+    <div id="signup-modal" class="modal">
+      <div id="signup-bg" class="modal-background"></div>
+      <div class="modal-content">
+        <form id="signup-form" class="box">
+          <div class="field">
+            <label class="label">Username</label>
+            <div class="control">
+              <input
+                class="input"
+                name="username"
+                autocomplete="username"
+                type="text"
+                placeholder="eg. coolUs3r"
+                required
+              />
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Name</label>
+            <div class="control">
+              <input
+                class="input"
+                name="name"
+                autocomplete="name"
+                autotype="text"
+                placeholder="eg. John Smith"
+                required
+              />
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Email</label>
+            <div class="control">
+              <input
+                class="input"
+                name="email"
+                autocomplete="email"
+                type="email"
+                placeholder="e.g. alex@example.com"
+                required
+              />
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Password</label>
+            <div class="control">
+              <input
+                class="input"
+                name="password"
+                autocomplete="new-password"
+                type="password"
+                minlength="8"
+                placeholder="********"
+                required
+              />
+            </div>
+          </div>
+
+          <button type="submit" class="button is-primary">Sign up</button>
+        </form>
+      </div>
+      <button id="signup-close-btn" class="modal-close is-large" aria-label="close"></button>
     </div>
     {{{body}}}
     <script src="js/login.js"></script>
+    <script src="js/signup.js"></script>
   </body>
 </html>
