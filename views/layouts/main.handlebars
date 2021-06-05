@@ -16,7 +16,7 @@
   <body>
     <nav class="navbar" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
-        <a class="navbar-item" href="https://bulma.io">
+        <a class="navbar-item" href="/">
           <img src="/images/top-logo.png" width="150" height="28" />
         </a>
 
@@ -47,16 +47,20 @@
 
         <div class="navbar-end">
           <div class="navbar-item">
+            {{#if loggedIn}}
+              <h4 class="mr-4">Hi, {{username}}</h4>
+            {{/if}}
             <div class="buttons">
-              <a id="nav-signup" class="button is-primary">
-                <strong>Sign up</strong>
-              </a>
+              {{#unless loggedIn}}
+                <a id="nav-signup" class="button is-primary">
+                  <strong>Sign up</strong>
+                </a>
+              {{/unless}}
               <a id="nav-login" class="button is-light">
                 {{#if loggedIn}}
-                  {{loggedIn}}
-                  Log in
-                {{else}}
                   Log Out
+                {{else}}
+                  Log In
                 {{/if}}
               </a>
             </div>
