@@ -2,7 +2,12 @@ const router = require('express').Router();
 
 // root route
 router.get('/', async (req, res) => {
-  res.render('test');
+  res.render('test', {
+    loggedIn: req.session.loggedIn,
+    userID: req.session.userID,
+    username: req.session.username,
+    email: req.session.email,
+  });
 })
 
 // login route

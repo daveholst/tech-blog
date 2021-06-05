@@ -52,7 +52,12 @@
                 <strong>Sign up</strong>
               </a>
               <a id="nav-login" class="button is-light">
-                Log in
+                {{#if loggedIn}}
+                  {{loggedIn}}
+                  Log in
+                {{else}}
+                  Log Out
+                {{/if}}
               </a>
             </div>
           </div>
@@ -86,7 +91,7 @@
     {{! SignUp Modal }}
     <div id="signup-modal" class="modal">
       <div id="signup-bg" class="modal-background"></div>
-      <div class="modal-content">
+      <div id="signup-content" class="modal-content">
         <form id="signup-form" class="box">
           <div class="field">
             <label class="label">Username</label>
@@ -148,6 +153,7 @@
       <button id="signup-close-btn" class="modal-close is-large" aria-label="close"></button>
     </div>
     {{{body}}}
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="js/login.js"></script>
     <script src="js/signup.js"></script>
   </body>

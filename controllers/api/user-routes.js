@@ -9,10 +9,11 @@ router.post('/', async (req, res) => {
       email: req.body.email,
       password: req.body.password,
     });
-
     req.session.save(() => {
       req.session.loggedIn = true;
-
+      req.session.userID = dbUserData.id;
+      req.session.username = dbUserData.username;
+      req.session.email = dbUserData.email;
       res.status(200).json(dbUserData);
     });
   } catch (err) {
