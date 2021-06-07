@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {Post, User} = require ('../models')
+const {Post, User, Comment} = require ('../models')
 
 // root route
 router.get('/', async (req, res) => {
@@ -7,18 +7,21 @@ router.get('/', async (req, res) => {
   const dbPostData = await Post.findAll({
     include: [
       {
+        model: Comment,
+      },
+      {
         model: User,
-      }
+      },
     ],
     order: [
       ['created_at', 'DESC']
     ]
   })
-
+  console.log(dbPostData);
   const allPosts = dbPostData.map((post) => post.get({ plain: true }));
 
   res.render('posts', {allPosts})
-  console.log(allPosts);
+  console.log(allPosts[0].comments);
 
   // res.render('test', {
   //   loggedIn: req.session.loggedIn,

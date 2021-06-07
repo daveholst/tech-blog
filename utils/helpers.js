@@ -1,3 +1,6 @@
+const {Post, User, Comment} = require ('../models')
+
+
 module.exports = {
   format_time: (date) => {
     return date.toLocaleTimeString();
@@ -10,4 +13,8 @@ module.exports = {
     });
     return formattedDate;
   },
+  get_author: async (id) => {
+    res = await User.findByPk(id)
+    return await res.get({plain: true})
+  }
 };
