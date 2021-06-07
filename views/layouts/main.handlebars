@@ -29,20 +29,21 @@
 
       <div id="navbarBasicExample" class="navbar-menu">
         <div class="navbar-start">
-          <a href="/" class="navbar-item">
-            Home
-          </a>
-
-          <a href="/post" id="nav-post-btn" class="navbar-item">
-            Post
-          </a>
-          <a class="navbar-item">
-            Dashboard
-          </a>
-          <a class="navbar-item">
-            GitHub
-          </a>
-
+          {{#if loggedIn}}
+            <a href="/" class="navbar-item">
+              Home
+            </a>
+          {{/if}}
+          {{#if loggedIn}}
+            <a href="/post" id="nav-post-btn" class="navbar-item">
+              Post
+            </a>
+          {{/if}}
+          {{#if loggedIn}}
+            <a class="navbar-item">
+              Dashboard
+            </a>
+          {{/if}}
         </div>
 
         <div class="navbar-end">

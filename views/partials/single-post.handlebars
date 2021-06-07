@@ -6,13 +6,15 @@
       <h4 class="is-size-6 mb-5">{{format_date createdAt}}</h4>
       <p>{{content}}</p>
       <div class="buttons">
-        <button data-post-id="{{id}}" class="button is-primary">Comment</button>
-        <button data-post-id="{{id}}" class="button is-link">Edit</button>
-        <button data-post-id="{{id}}" class="post-delete-button button is-danger">Delete</button>
+        <button data-post-id="{{id}}" class="comment-on-post is-fullwidth button is-medium is-primary">Comment</button>
       </div>
     </div>
   </div>
 </article>
+<form class="comment-form ml-5 is-hidden" action="">
+<textarea name="content" class="textarea is-primary mb-4" placeholder="Type Comment Here"></textarea>
+<button type="submit" data-post-id="{{id}}" class="post-comment-button button is-fullwidth is-medium is-info">Comment</button>
+</form>
 {{#each comments as |comment|}}
 {{> single-comment}}
 {{/each}}
