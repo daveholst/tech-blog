@@ -10,7 +10,6 @@ const commentdata = [
   {
     content: 'A agree!!!!',
     username: 'test2',
-
     author_id: 2,
     post_id: 1
   },

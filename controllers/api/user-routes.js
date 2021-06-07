@@ -62,5 +62,14 @@ router.post('/login', async (req, res) => {
   }
 });
 
+// check if logged in
+// router.post('/checkstatus', async (req, res) => {
+//   if (req.session.loggedIn) {
+//     res.send(true)
+//   } else {
+//     res.send(false)
+//   }
+// });
+
 
 module.exports = router;

@@ -15,6 +15,16 @@ const navMenu = document.querySelector('#nav-menu');
 const navBurger = document.querySelector('#burger');
 // Login Form
 const loginForm = document.querySelector('#login-form')
+// Post Nav Button
+const navPostBtn = document.querySelector('#nav-post-btn')
+
+// go to post, but check if logged in.
+// navPostBtn.addEventListener('click', async () => {
+//   const loggedIn = await axios.post('/api/users/checkstatus')
+//   if (loggedIn) {
+//     window.location.replace("/")
+//   }
+// })
 
 // * Modal handlers
 // open when login from nav is clicked
