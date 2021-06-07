@@ -1,6 +1,9 @@
-- [ ] Basic UI
-- [ ] Login / Signup Modals
-- [ ] Users DB
-- [ ] API (logging in) bCrypt hashing
-- [ ] Logging in via Modals
-- [ ] Start Posting?
+- [x] Basic UI
+- [x] Login / Signup Modals
+- [x] Users DB
+- [x] API (logging in) bCrypt hashing
+- [x] Logging in via Modals
+- [ ] Model - Posts DB
+- [ ] make a post
+- [ ] markdown handler?
+- [ ]
