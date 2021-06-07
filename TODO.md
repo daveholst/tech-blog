@@ -4,6 +4,9 @@
 - [x] API (logging in) bCrypt hashing
 - [x] Logging in via Modals
 - [ ] Model - Posts DB
+- [ ] Read from DB
 - [ ] make a post
 - [ ] markdown handler?
-- [ ]
+- [ ] edit
+- [ ] delete
+- [ ] comment
