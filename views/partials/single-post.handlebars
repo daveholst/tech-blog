@@ -6,9 +6,9 @@
       <h4 class="is-size-6 mb-5">{{format_date createdAt}}</h4>
       <p>{{content}}</p>
       <div class="buttons">
-        <button class="button is-primary">Comment</button>
-        <button class="button is-link">Edit</button>
-        <button class="button is-danger">Delete</button>
+        <button data-post-id="{{id}}" class="button is-primary">Comment</button>
+        <button data-post-id="{{id}}" class="button is-link">Edit</button>
+        <button data-post-id="{{id}}" class="post-delete-button button is-danger">Delete</button>
       </div>
     </div>
   </div>

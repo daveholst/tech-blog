@@ -1,14 +1,12 @@
 const postForm = document.querySelector('#new-post');
 
-
 postForm.addEventListener('submit', async (event) => {
   event.preventDefault();
-
-  const data = new FormData(event.target);
-  const postData = Object.fromEntries(data.entries());
   try {
+    const data = new FormData(event.target);
+    const postData = Object.fromEntries(data.entries());
     const response = await axios.post('/api/post', postData)
-    window.location.replace("/");
+    window.location.assign("/");
     console.log(postData);
   } catch (error) {
 

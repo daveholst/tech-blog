@@ -3,8 +3,8 @@
 - [x] Users DB
 - [x] API (logging in) bCrypt hashing
 - [x] Logging in via Modals
-- [ ] Model - Posts DB
-- [ ] Read from DB
+- [x] Model - Posts DB
+- [x] Read Posts from DB
 - [ ] make a post
 - [ ] markdown handler?
 - [ ] edit
