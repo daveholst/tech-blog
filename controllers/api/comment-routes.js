@@ -18,14 +18,22 @@ router.post('/', async (req, res) => {
   }
 });
 
-// // Delete a post
-// router.delete('/:id', async (req, res) => {
-//   const postId = req.params.id;
-//   await Post.destroy({
-//     where: { id: postId }
-//   });
-//   res.status(200).send('Post Deleted')
-// })
+// Delete a post
+router.delete('/:id', async (req, res) => {
+  try {
+    if (req.session.loggedIn) {
+      const commentId = req.params.id;
+      await Comment.destroy({
+        where: { id: commentId }
+      });
+      res.status(200).send('Comment Deleted')
+    } else {
+      res.status(400).send('USer must be logged in to delete comments')
+    }
+  } catch (error) {
+    console.error(error);
+  }
+})
 
 
 module.exports = router;

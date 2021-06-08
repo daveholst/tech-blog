@@ -1,0 +1,30 @@
+<div class="container p-5">
+  <div class="content">
+    <h1 class="is-size-1 ml-5">My Dashboard</h1>
+    <div class="field is-grouped">
+      <p class="control">
+        <a href="/post">
+          <button class="button is-primary">
+            Make a New Post
+          </button>
+        </a>
+      </p>
+      <p class="control">
+        <button class="button is-warning">
+          Edit Comments
+        </button>
+      </p>
+      <p class="control">
+        <button class="button is-warning">
+          Edit Posts
+        </button>
+      </p>
+    </div>
+
+    {{!-- {{#each allPosts as |post|}}
+{{> single-post}}
+{{/each}} --}}
+  </div>
+</div>
+<script src="js/posts.js"></script>
+<script src="js/comments.js"></script>

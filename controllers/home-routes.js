@@ -42,6 +42,18 @@ router.get("/post", (req, res) => {
   }
 });
 
+router.get("/please-login", (req, res) => {
+  res.render('login');
+})
+
+router.get('/dashboard', (req, res) => {
+  res.render('dashboard',{
+    // allPosts,
+    loggedIn: req.session.loggedIn,
+    username: req.session.username
+  })
+})
+
 // login route
 // router.get('/login', async (req, res) => {
 //   res.render('login');

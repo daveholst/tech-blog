@@ -6,7 +6,7 @@ postForm.addEventListener('submit', async (event) => {
     const data = new FormData(event.target);
     const postData = Object.fromEntries(data.entries());
     const response = await axios.post('/api/post', postData)
-    window.location.assign("/");
+    window.location.assign("/dashboard");
     console.log(postData);
   } catch (error) {
 
