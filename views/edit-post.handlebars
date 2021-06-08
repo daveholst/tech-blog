@@ -2,7 +2,7 @@
   <div class="container p-5">
     <div class="content">
       <h2>Edit Post ID: {{id}}</h2>
-      <form id="new-post">
+      <form data-post-id="{{id}}" id="edit-post">
         <div class="field">
           <label class="label">Post Title</label>
           <div class="control">
@@ -18,12 +18,15 @@
           rows="40"
         >{{content}}</textarea>
         <div class="buttons m-3">
-          <button type="submit" class="button is-primary">Post</button>
-          <button class="button is-link">Save</button>
-          <button class="button is-danger">Delete</button>
+          <button type="submit" class="button is-link">Save</button>
+          <a href="/dashboard">
+            <button class="button is-danger">Cancel</button>
+          </a>
         </div>
       </form>
     </div>
   </div>
 </article>
+<script src="/js/dashboard.js"></script>
+
 {{! <script src="js/post.js"></script> }}

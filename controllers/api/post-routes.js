@@ -26,7 +26,16 @@ router.delete('/:id', async (req, res) => {
   res.status(200).send('Post Deleted')
 })
 
-
+// Update a post
+router.put('/:id', async (req, res) => {
+  const postId = req.params.id;
+  await Post.update(req.body, {
+    where: {
+      id: postId,
+    }
+  });
+  res.status(200).send('Post Updated')
+})
 
 
 module.exports = router;
