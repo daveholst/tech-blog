@@ -22,9 +22,10 @@
     </div>
     <h3>My Posts</h3>
     {{#each allUsersPosts as |post|}}
-{{> edit-post}}
-{{/each}}
+      {{> edit-single-post}}
+    {{/each}}
   </div>
 </div>
-<script src="js/posts.js"></script>
-<script src="js/comments.js"></script>
+<script src="/js/dashboard.js"></script>
+{{!-- <script src="js/posts.js"></script>
+<script src="js/comments.js"></script> --}}

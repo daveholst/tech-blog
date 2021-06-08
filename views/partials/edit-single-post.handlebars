@@ -4,15 +4,16 @@
       <div class="content">
         <p>
           <h3>{{title}}</h3>
-          <strong>@{{username}}</strong>
+          <strong>Post ID: {{id}}</strong>
+          <br />
           <small>{{format_date createdAt}}</small>
         </p>
       </div>
-      <nav class="comment-controls is-hidden level is-mobile">
+      <nav class="comment-controls is-mobile">
         <div class="level-left">
-          <a class="level-item" aria-label="edit">
+          <a href="/edit-post?post={{id}}" class="level-item" aria-label="edit">
             <span class="icon is-small">
-              <i data-post-id="{{id}}" class="fas fa-edit" aria-hidden="true"></i>
+              <i data-post-id="{{id}}" class="edit-post-button fas fa-edit" aria-hidden="true"></i>
             </span>
           </a>
           <a class="level-item" aria-label="delete">

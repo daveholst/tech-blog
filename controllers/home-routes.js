@@ -68,6 +68,20 @@ router.get('/dashboard', async (req, res) => {
   })
 })
 
-router.get()
+router.get('/edit-post', async (req, res) => {
+  // get post data
+  const postId = req.query.post;
+  const postData = await Post.findByPk(postId)
+  const cleanPostData = postData.get({ plain: true });
+  console.log(cleanPostData);
+  res.render('edit-post', {
+    id: cleanPostData.id,
+    title: cleanPostData.title,
+    content: cleanPostData.content,
+    loggedIn: req.session.loggedIn,
+    username: req.session.username
+  })
+
+})
 
 module.exports = router;
