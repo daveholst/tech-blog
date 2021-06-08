@@ -1,0 +1,32 @@
+<div class="box ml-5">
+  <article class="media">
+    <div class="media-content">
+      <div class="content">
+        <p>
+          <h3>{{title}}</h3>
+          <strong>@{{username}}</strong>
+          <small>{{format_date createdAt}}</small>
+        </p>
+      </div>
+      <nav class="comment-controls is-hidden level is-mobile">
+        <div class="level-left">
+          <a class="level-item" aria-label="edit">
+            <span class="icon is-small">
+              <i data-post-id="{{id}}" class="fas fa-edit" aria-hidden="true"></i>
+            </span>
+          </a>
+          <a class="level-item" aria-label="delete">
+            <span class="icon is-small has-text-danger">
+              <i
+                data-post-id="{{id}}"
+                data-author-id="{{author_id}}"
+                class="comment-delete-button fas fa-trash-alt"
+                aria-hidden="true"
+              ></i>
+            </span>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </article>
+</div>

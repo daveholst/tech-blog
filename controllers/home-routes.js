@@ -46,17 +46,28 @@ router.get("/please-login", (req, res) => {
   res.render('login');
 })
 
-router.get('/dashboard', (req, res) => {
-  res.render('dashboard',{
-    // allPosts,
+router.get('/dashboard', async (req, res) => {
+  const dbPostData = await Post.findAll({
+    where: {
+      author_id: req.session.userID
+    },
+    include: [
+      {
+        model: User,
+      },
+    ],
+    order: [["created_at", "DESC"]],
+  });
+  console.log(dbPostData);
+  const allUsersPosts = dbPostData.map((post) => post.get({ plain: true }));
+
+  res.render('dashboard', {
+    allUsersPosts,
     loggedIn: req.session.loggedIn,
     username: req.session.username
   })
 })
 
-// login route
-// router.get('/login', async (req, res) => {
-//   res.render('login');
-// })
+router.get()
 
 module.exports = router;
