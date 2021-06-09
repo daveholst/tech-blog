@@ -1,8 +1,10 @@
-const router = require("express").Router();
-const { Post, User, Comment } = require("../models");
+const router = require('express').Router();
+const { Post, User, Comment } = require('../models');
+
+const authCheck = require('../utils/authCheck');
 
 // root route
-router.get("/", async (req, res) => {
+router.get('/', async (req, res) => {
   // get all posts
   const dbPostData = await Post.findAll({
     include: [
@@ -13,15 +15,15 @@ router.get("/", async (req, res) => {
         model: User,
       },
     ],
-    order: [["created_at", "DESC"]],
+    order: [['created_at', 'DESC']],
   });
   console.log(dbPostData);
   const allPosts = dbPostData.map((post) => post.get({ plain: true }));
 
-  res.render("posts", {
+  res.render('posts', {
     allPosts,
     loggedIn: req.session.loggedIn,
-    username: req.session.username
+    username: req.session.username,
   });
   // console.log(allPosts[0].comments);
 
@@ -32,31 +34,32 @@ router.get("/", async (req, res) => {
   //   email: req.session.email,
   // });
 });
-router.get("/post", (req, res) => {
-  if (req.session.loggedIn) res.render("newpost", {
-    loggedIn: req.session.loggedIn,
-    username: req.session.username
-  });
+router.get('/post', authCheck, (req, res) => {
+  if (req.session.loggedIn)
+    res.render('newpost', {
+      loggedIn: req.session.loggedIn,
+      username: req.session.username,
+    });
   else {
-    res.render("login");
+    res.render('login');
   }
 });
 
-router.get("/please-login", (req, res) => {
+router.get('/please-login', (req, res) => {
   res.render('login');
-})
+});
 
-router.get('/dashboard', async (req, res) => {
+router.get('/dashboard', authCheck, async (req, res) => {
   const dbPostData = await Post.findAll({
     where: {
-      author_id: req.session.userID
+      author_id: req.session.userID,
     },
     include: [
       {
         model: User,
       },
     ],
-    order: [["created_at", "DESC"]],
+    order: [['created_at', 'DESC']],
   });
   console.log(dbPostData);
   const allUsersPosts = dbPostData.map((post) => post.get({ plain: true }));
@@ -64,14 +67,14 @@ router.get('/dashboard', async (req, res) => {
   res.render('dashboard', {
     allUsersPosts,
     loggedIn: req.session.loggedIn,
-    username: req.session.username
-  })
-})
+    username: req.session.username,
+  });
+});
 
-router.get('/edit-post', async (req, res) => {
+router.get('/edit-post', authCheck, async (req, res) => {
   // get post data
   const postId = req.query.post;
-  const postData = await Post.findByPk(postId)
+  const postData = await Post.findByPk(postId);
   const cleanPostData = postData.get({ plain: true });
   console.log(cleanPostData);
   res.render('edit-post', {
@@ -79,9 +82,8 @@ router.get('/edit-post', async (req, res) => {
     title: cleanPostData.title,
     content: cleanPostData.content,
     loggedIn: req.session.loggedIn,
-    username: req.session.username
-  })
-
-})
+    username: req.session.username,
+  });
+});
 
 module.exports = router;

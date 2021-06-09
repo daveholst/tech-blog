@@ -1,19 +1,19 @@
 const router = require('express').Router();
-const { User, Post } = require('../../models')
+const { User, Post } = require('../../models');
 
 // CREATE a new post
 router.post('/', async (req, res) => {
   try {
-    //TODO: error if user isnt logged in
+    // TODO: error if user isnt logged in
     const { title, content } = req.body;
     const postData = await Post.create({
-      title: title,
-      content: content,
+      title,
+      content,
       author_id: req.session.userID,
     });
-    res.status(201).send('Post Received')
+    res.status(201).send('Post Received');
   } catch (error) {
-    console.error(error)
+    console.error(error);
   }
 });
 
@@ -21,10 +21,10 @@ router.post('/', async (req, res) => {
 router.delete('/:id', async (req, res) => {
   const postId = req.params.id;
   await Post.destroy({
-    where: { id: postId }
+    where: { id: postId },
   });
-  res.status(200).send('Post Deleted')
-})
+  res.status(200).send('Post Deleted');
+});
 
 // Update a post
 router.put('/:id', async (req, res) => {
@@ -32,10 +32,9 @@ router.put('/:id', async (req, res) => {
   await Post.update(req.body, {
     where: {
       id: postId,
-    }
+    },
   });
-  res.status(200).send('Post Updated')
-})
-
+  res.status(200).send('Post Updated');
+});
 
 module.exports = router;
