@@ -2,7 +2,7 @@
 
 This is a blogging platform with a live deploy on Heroku with the following features.
 
-- Session based Authentication with hashed passwords stored in database
+- Session based Authentication with hashed passwords stored in database.
 - Users can create accounts and login.
 - Posts can be created, deleted and edited by the author.
 - Comments can be created, deleted and edited by the author.
@@ -20,7 +20,7 @@ This is a blogging platform with a live deploy on Heroku with the following feat
 
 ## Live Deploy
 
-I live deploy of this app can be found on Heroku at: https://holst-tech-blog.herokuapp.com/
+A live deploy of this app can be found on Heroku at: https://holst-tech-blog.herokuapp.com/
 
 ## License
 
