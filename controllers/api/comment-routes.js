@@ -18,7 +18,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-// Delete a post
+// Delete a comment
 router.delete('/:id', async (req, res) => {
   try {
     if (req.session.loggedIn) {
@@ -31,6 +31,23 @@ router.delete('/:id', async (req, res) => {
       res.status(400).send('USer must be logged in to delete comments');
     }
   } catch (error) {
+    console.error(error);
+  }
+});
+
+// Update a comment
+router.put('/:id', async (req, res) => {
+  try {
+    const commentId = req.params.id;
+    const response = await Comment.update(req.body, {
+      where: {
+        id: commentId,
+      },
+    });
+    console.log(response);
+    res.status(200).send('Post Updated');
+  } catch (error) {
+    res.status(400).send('Post did not update - check auth');
     console.error(error);
   }
 });

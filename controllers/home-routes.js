@@ -78,7 +78,6 @@ router.get('/dashboard', authCheck, async (req, res) => {
   const allUsersComments = dbCommentData.map((comment) =>
     comment.get({ plain: true })
   );
-  console.log(allUsersComments);
   res.render('dashboard', {
     allUsersPosts,
     allUsersComments,
