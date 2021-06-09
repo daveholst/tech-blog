@@ -10,22 +10,28 @@
         </a>
       </p>
       <p class="control">
+      <a href="#my-comments">
         <button class="button is-warning">
           Edit Comments
         </button>
       </p>
+      </a>
+      <a href="#my-posts">
       <p class="control">
         <button class="button is-warning">
           Edit Posts
         </button>
       </p>
+      </a>
     </div>
-    <h3>My Posts</h3>
+    <h2 id="my-posts">My Posts</h3>
     {{#each allUsersPosts as |post|}}
-      {{> edit-single-post}}
+      {{> dashboard-single-post}}
+    {{/each}}
+    <h2 id="my-comments">My Comments</h3>
+     {{#each allUsersComments as |comment|}}
+      {{> dashboard-single-comment}}
     {{/each}}
   </div>
 </div>
 <script src="js/dashboard.js"></script>
-{{!-- <script src="js/posts.js"></script>
-<script src="js/comments.js"></script> --}}

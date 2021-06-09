@@ -1,33 +1,6 @@
-// const allEditPostBtns = document.querySelectorAll('.edit-post-button')
-
-// editPostBtns.forEach(editButton => {
-//   editButton.addEventListener('click', ())
-// });
-
-// save edits to db
-// const editPostForm = document.querySelector('#edit-post');
-
-// editPostForm.addEventListener('submit', async (event) => {
-//   event.preventDefault();
-
-//   const data = new FormData(event.target);
-//   const newPostData = Object.fromEntries(data.entries());
-
-//   const { postId } = event.target.dataset;
-
-//   try {
-//     const response = await axios.put(`/api/post/${postId}`, newPostData);
-//     // reload page
-//     window.location.assign('/dashboard');
-//   } catch (error) {
-//     console.error(error);
-//   }
-// });
-
 // delete post
 
 const allDeleteButtons = document.querySelectorAll('.post-delete-button');
-console.log(allDeleteButtons);
 
 allDeleteButtons.forEach((delBtn) => {
   delBtn.addEventListener('click', async (event) => {
@@ -39,5 +12,19 @@ allDeleteButtons.forEach((delBtn) => {
     } catch (error) {
       console.error(error);
     }
+  });
+});
+
+// show edit window for comments
+
+const allEditButtons = document.querySelectorAll('.edit-comment-button');
+
+allEditButtons.forEach((editBtn) => {
+  editBtn.addEventListener('click', async (event) => {
+    event.preventDefault();
+    const editForm = document.querySelector(
+      `#edit-form-${event.target.dataset.commentId}`
+    );
+    editForm.classList.toggle('is-hidden');
   });
 });

@@ -50,6 +50,7 @@ router.get('/please-login', (req, res) => {
 });
 
 router.get('/dashboard', authCheck, async (req, res) => {
+  // get all the users posts
   const dbPostData = await Post.findAll({
     where: {
       author_id: req.session.userID,
@@ -61,11 +62,26 @@ router.get('/dashboard', authCheck, async (req, res) => {
     ],
     order: [['created_at', 'DESC']],
   });
-  console.log(dbPostData);
   const allUsersPosts = dbPostData.map((post) => post.get({ plain: true }));
-
+  // get all the users comments
+  const dbCommentData = await Comment.findAll({
+    where: {
+      author_id: req.session.userID,
+    },
+    include: [
+      {
+        model: Post,
+      },
+    ],
+    order: [['created_at', 'DESC']],
+  });
+  const allUsersComments = dbCommentData.map((comment) =>
+    comment.get({ plain: true })
+  );
+  console.log(allUsersComments);
   res.render('dashboard', {
     allUsersPosts,
+    allUsersComments,
     loggedIn: req.session.loggedIn,
     username: req.session.username,
   });

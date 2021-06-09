@@ -1,0 +1,57 @@
+<div class="box ml-5">
+  <article class="media">
+    <div class="media-content">
+      <div class="content">
+        <p>
+          <h3 class="mt-0">On Post: {{post.title}}</h3>
+          <strong>Comment ID: {{id}}</strong>
+          <br />
+          <small>Created: {{format_date createdAt}}</small>
+          <small>Last Updated: {{format_date updatedAt}}</small>
+          <br />
+          <br />
+          {{content}}
+        </p>
+      </div>
+      <nav class="post-controls is-mobile">
+        <div class="level-left">
+          <a href="/edit-post?post={{id}}" class="level-item" aria-label="edit">
+            <span class="icon is-small">
+              <i data-comment-id="{{id}}" class="edit-comment-button fas fa-edit" aria-hidden="true"></i>
+            </span>
+          </a>
+          <a class="level-item" aria-label="delete">
+            <span class="icon is-small has-text-danger">
+              <i
+                data-post-id="{{id}}"
+                data-author-id="{{author_id}}"
+                class="comment-delete-button fas fa-trash-alt"
+                aria-hidden="true"
+              ></i>
+            </span>
+          </a>
+        </div>
+      </nav>
+      <br />
+      <br />
+      <form id="edit-form-{{id}}" class="edit-comment-form is-hidden" action="">
+        <div class="field">
+          <label class="label">Edit Comment:</label>
+          <div class="control">
+            <textarea name="content" class="textarea" placeholder="Textarea">{{content}}</textarea>
+          </div>
+        </div>
+        <div class="field is-grouped">
+          <div class="control">
+            <button type="submit" class="button is-primary">Save</button>
+          </div>
+          <div class="control">
+            <a href="/dashboard">
+              <button class="cancel-edit-button button is-link is-danger">Cancel</button>
+            </a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </article>
+</div>
